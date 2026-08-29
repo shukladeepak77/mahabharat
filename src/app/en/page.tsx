@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { parvasEn } from "@/content/parvasEn";
 import ParvaBubble from "@/components/ParvaBubble";
-import { SITE_NAME_EN, SITE_DESCRIPTION_EN } from "@/lib/site";
+import { SITE_NAME_EN, SITE_DESCRIPTION_EN, OG_IMAGE } from "@/lib/site";
 import { hreflangAlternates } from "@/lib/locale";
 
 export const metadata: Metadata = {
@@ -19,11 +19,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: `${SITE_NAME_EN} — The Mahabharata Epic in English`,
     description: SITE_DESCRIPTION_EN,
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME_EN} — The Mahabharata Epic in English`,
     description: SITE_DESCRIPTION_EN,
+    images: [OG_IMAGE.url],
   },
 };
 

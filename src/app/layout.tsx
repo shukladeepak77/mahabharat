@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Tiro_Devanagari_Hindi, Noto_Sans_Devanagari } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, OG_IMAGE } from "@/lib/site";
 import { hreflangAlternates } from "@/lib/locale";
 
 const tiroDevanagari = Tiro_Devanagari_Hindi({
@@ -56,20 +56,13 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} — महाभारत महाकाव्य हिंदी में`,
     description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: "/images/dharma-path-logo.png",
-        width: 1200,
-        height: 1200,
-        alt: SITE_NAME,
-      },
-    ],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — महाभारत महाकाव्य हिंदी में`,
     description: SITE_DESCRIPTION,
-    images: ["/images/dharma-path-logo.png"],
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -82,6 +75,10 @@ export const metadata: Metadata = {
   other: {
     google: "notranslate",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#7f1d1d",
 };
 
 export default function RootLayout({

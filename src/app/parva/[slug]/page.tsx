@@ -7,7 +7,7 @@ import { getChapterMedia } from "@/content/chapterMedia";
 import HeroBanner from "@/components/HeroBanner";
 import ChapterList from "@/components/ChapterList";
 import ChapterSection from "@/components/ChapterSection";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
 import { hreflangAlternates } from "@/lib/locale";
 
 export async function generateStaticParams() {
@@ -36,11 +36,13 @@ export async function generateMetadata({
       url,
       title: `${parva.title} — ${SITE_NAME}`,
       description: parva.description,
+      images: [{ ...OG_IMAGE, alt: parva.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${parva.title} — ${SITE_NAME}`,
       description: parva.description,
+      images: [OG_IMAGE.url],
     },
   };
 }
