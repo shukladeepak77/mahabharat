@@ -21,7 +21,7 @@ export default function Header() {
       style={{ background: "linear-gradient(90deg, #7f1d1d 0%, #b91c1c 100%)" }}
     >
       <div className="mx-auto flex max-w-[1800px] items-stretch gap-2 px-4 sm:gap-4 sm:px-6">
-      <div className="min-w-0 flex-1 py-3">
+      <div className="min-w-0 flex-1 py-2">
       <div className="flex flex-wrap items-center gap-3">
         <Link
           href="/"
@@ -74,7 +74,7 @@ export default function Header() {
         </div>
         <nav
           aria-label="पर्व नेविगेशन"
-          className="hidden items-center gap-2 py-0.5 sm:flex sm:min-w-0 sm:flex-1 sm:flex-wrap"
+          className="hidden items-center gap-1.5 py-0.5 sm:flex sm:min-w-0 sm:flex-1 sm:flex-wrap"
         >
           {parvas.map((parva) => (
             <ParvaBubble
@@ -101,25 +101,6 @@ export default function Header() {
           </nav>
         )}
       </div>
-
-      {onHome && (
-        <div className="mx-auto max-w-3xl pt-4 pb-2 text-center sm:pt-0 sm:pb-3">
-          <p className="font-devanagari text-base leading-snug text-gold sm:text-lg">
-            धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः।
-            <br />
-            मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय॥
-          </p>
-          <h1 className="font-devanagari sr-only mt-1 text-2xl font-bold text-white sm:not-sr-only sm:text-3xl">
-            महाभारत
-          </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-xs text-white/90 sm:mt-1 sm:text-sm">
-            महर्षि वेदव्यास रचित महाभारत — अठारह पर्वों में विभाजित यह
-            विश्व का सबसे विशाल महाकाव्य धर्म, कर्तव्य और कुरुक्षेत्र के
-            युद्ध की अमर गाथा का वर्णन करता है। नीचे किसी भी पर्व पर जाकर
-            पाठ पढ़ें।
-          </p>
-        </div>
-      )}
       </div>
 
       <div className="flex w-28 shrink-0 items-end gap-2 pb-2 sm:w-auto sm:gap-3 sm:pb-3">

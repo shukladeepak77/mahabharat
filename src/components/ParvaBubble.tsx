@@ -57,7 +57,7 @@ export default function ParvaBubble({
       style={bubbleStyle(color, active)}
       className={
         compact
-          ? "group relative flex items-center gap-3 overflow-hidden rounded-2xl px-4 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110"
+          ? "group relative flex items-center gap-2.5 overflow-hidden rounded-2xl px-3 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110"
           : "group relative flex items-center gap-4 overflow-hidden rounded-3xl px-5 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 sm:px-6 sm:py-5"
       }
     >
@@ -72,7 +72,7 @@ export default function ParvaBubble({
       <span
         className={
           compact
-            ? "font-devanagari relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/15 text-sm font-extrabold text-white ring-1 ring-white/40"
+            ? "font-devanagari relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/15 text-xs font-extrabold text-white ring-1 ring-white/40"
             : "font-devanagari relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/15 text-lg font-extrabold text-white ring-1 ring-white/40"
         }
       >
@@ -87,7 +87,7 @@ export default function ParvaBubble({
         <span
           className={
             compact
-              ? "font-devanagari block leading-snug text-lg font-extrabold text-yellow-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.55)]"
+              ? "font-devanagari block leading-snug text-base font-extrabold text-yellow-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.55)]"
               : "font-devanagari block truncate text-2xl font-extrabold text-yellow-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.55)] sm:text-[1.7rem]"
           }
         >
