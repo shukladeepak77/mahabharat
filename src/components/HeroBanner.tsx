@@ -1,11 +1,17 @@
+import YouTubeButton from "@/components/YouTubeButton";
+
 export default function HeroBanner({
   eyebrow,
   title,
   description,
+  youtubeId,
+  watchLabel,
 }: {
   eyebrow: string;
   title: string;
   description: string;
+  youtubeId?: string;
+  watchLabel?: string;
 }) {
   return (
     <section
@@ -24,6 +30,15 @@ export default function HeroBanner({
       <p className="mx-auto mt-4 max-w-2xl text-base text-white/90 sm:text-lg">
         {description}
       </p>
+      {youtubeId && (
+        <div className="mt-5 flex justify-center">
+          <YouTubeButton
+            href={`https://www.youtube.com/watch?v=${youtubeId}`}
+            label={watchLabel ?? "इस पर्व का वीडियो देखें"}
+            className="!px-3.5 !py-1.5"
+          />
+        </div>
+      )}
     </section>
   );
 }

@@ -8,6 +8,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Adi Parva",
     description:
       "Shantanu and Ganga, Bhishma's vow, the marriage to Satyavati, the birth and upbringing of the Pandavas and Kauravas, Drona's teaching, the escape from the House of Lac, and Draupadi's swayamvara through to the founding of Indraprastha.",
+    youtubeId: "T-qY9pKOAQg",
   },
   {
     slug: "parva-2",
@@ -16,6 +17,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Sabha Parva",
     description:
       "The Maya-built hall at Indraprastha, Yudhishthira's Rajasuya sacrifice, the slaying of Shishupala, and the ruinous game of dice — engineered by Shakuni's deceit — that led to Draupadi's disrobing and the Pandavas' exile.",
+    youtubeId: "QEMKXRFEjAw",
   },
   {
     slug: "parva-3",
@@ -24,6 +26,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Vana Parva",
     description:
       "The Pandavas' twelve years in exile — encounters with many sages, Arjuna's penance and his winning of celestial weapons, and the famous exchange of questions and answers between Yudhishthira and the Yaksha.",
+    youtubeId: "9Y2ZCa5W-nQ",
   },
   {
     slug: "parva-4",
@@ -32,6 +35,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Virata Parva",
     description:
       "The Pandavas' final year of exile spent in disguise at King Virata's court, the killing of Kichaka, and Arjuna's valor in repelling the Kauravas' attempt to seize the kingdom's cattle.",
+    youtubeId: "9n3kUIq8rM8",
   },
   {
     slug: "parva-5",
@@ -40,6 +44,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Udyoga Parva",
     description:
       "Preparations for war — Krishna's journey to Hastinapur as a peace envoy, Duryodhana's arrogance, Vidura's counsel, and Krishna's secret message to Karna.",
+    youtubeId: "x-SCSHDRq6Y",
   },
   {
     slug: "parva-6",
@@ -48,6 +53,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Bhishma Parva",
     description:
       "The start of the Kurukshetra war, the teaching of the Shrimad Bhagavad Gita, and the ten days of Bhishma's command as commander-in-chief, ending in his fall through Shikhandi.",
+    youtubeId: "KzzdRywZ57Q",
   },
   {
     slug: "parva-7",
@@ -56,6 +62,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Drona Parva",
     description:
       "Acharya Drona's command, Abhimanyu's heroic death within the Chakravyuha, Arjuna's vow to kill Jayadratha, and Drona's own end brought about by Ashwatthama's false report.",
+    youtubeId: "ui66f-9FdWo",
   },
   {
     slug: "parva-8",
@@ -64,6 +71,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Karna Parva",
     description:
       "Karna's command, Shalya as his charioteer, and the final, fate-bound duel between Arjuna and Karna, in which Karna was slain as his chariot's wheel sank into the earth.",
+    youtubeId: "9lGLA4UffxY",
   },
   {
     slug: "parva-9",
@@ -72,6 +80,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Shalya Parva",
     description:
       "Shalya's brief command and his end, and the mace duel between Bhima and Duryodhana in which a blow to the thigh finally decided the war.",
+    youtubeId: "MMgVlkgQI2k",
   },
   {
     slug: "parva-10",
@@ -80,6 +89,7 @@ export const parvasEn: Parva[] = [
     subtitle: "Sauptika Parva",
     description:
       "The night raid by Ashwatthama, Kripa, and Kritavarma on the sleeping Pandava camp — a brutal massacre in which Draupadi's five sons were killed.",
+    youtubeId: "1HRlxKJfaTI",
   },
   {
     slug: "parva-11",

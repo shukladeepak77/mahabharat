@@ -8,7 +8,9 @@ import { parvasEn } from "@/content/parvasEn";
 import ParvaBubble from "@/components/ParvaBubble";
 import ContactEmail from "@/components/ContactEmail";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import YouTubeButton from "@/components/YouTubeButton";
 import { homeHref, type Locale } from "@/lib/locale";
+import { YOUTUBE_PLAYLIST_URL } from "@/lib/site";
 import dharmaPathLogo from "../../public/images/dharma-path-logo.png";
 
 export default function Header({ locale: localeProp }: { locale?: Locale } = {}) {
@@ -80,6 +82,10 @@ export default function Header({ locale: localeProp }: { locale?: Locale } = {})
             the foundation logo instead (below), with this row hidden. */}
         <div className="flex flex-wrap items-center gap-2 sm:hidden">
           <LanguageSwitcher locale={locale} />
+          <YouTubeButton
+            href={YOUTUBE_PLAYLIST_URL}
+            label={locale === "en" ? "Watch on YouTube" : "यूट्यूब पर देखें"}
+          />
           <ContactEmail />
         </div>
         <nav
@@ -122,7 +128,12 @@ export default function Header({ locale: localeProp }: { locale?: Locale } = {})
       </div>
 
       <div className="flex w-28 shrink-0 items-end gap-2 pb-2 sm:w-auto sm:gap-3 sm:pb-3">
-        <div className="hidden sm:inline-flex">
+        <div className="hidden sm:inline-flex sm:items-center sm:gap-1.5">
+          <YouTubeButton
+            href={YOUTUBE_PLAYLIST_URL}
+            label={locale === "en" ? "Watch on YouTube" : "यूट्यूब पर देखें"}
+            iconOnly
+          />
           <ContactEmail className="mb-1.5" />
         </div>
         <Image

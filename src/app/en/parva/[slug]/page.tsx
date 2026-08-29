@@ -92,6 +92,8 @@ export default async function ParvaPageEn({
             eyebrow={parva.subtitle}
             title={parva.title}
             description={parva.description}
+            youtubeId={parva.youtubeId}
+            watchLabel="Watch this parva's video"
           />
 
           <div className="mt-10">

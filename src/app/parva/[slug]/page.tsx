@@ -92,6 +92,7 @@ export default async function ParvaPage({
             eyebrow={parva.subtitle}
             title={parva.title}
             description={parva.description}
+            youtubeId={parva.youtubeId}
           />
 
           <div className="mt-10">
