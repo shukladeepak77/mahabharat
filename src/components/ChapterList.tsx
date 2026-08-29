@@ -1,6 +1,13 @@
 import type { Chapter } from "@/content/types";
+import type { Locale } from "@/lib/locale";
 
-export default function ChapterList({ chapters }: { chapters: Chapter[] }) {
+export default function ChapterList({
+  chapters,
+  locale = "hi",
+}: {
+  chapters: Chapter[];
+  locale?: Locale;
+}) {
   if (chapters.length === 0) return null;
 
   return (
@@ -12,7 +19,7 @@ export default function ChapterList({ chapters }: { chapters: Chapter[] }) {
         }}
       >
         <p className="font-devanagari text-xl font-bold tracking-wide text-yellow-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)] sm:text-[1.4rem]">
-          इस पर्व के अध्याय
+          {locale === "en" ? "Chapters of this Parva" : "इस पर्व के अध्याय"}
         </p>
       </div>
       <nav className="flex max-h-[68vh] flex-col gap-1.5 overflow-y-auto p-3">

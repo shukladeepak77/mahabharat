@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
+import { hreflangAlternates } from "@/lib/locale";
 
 const tiroDevanagari = Tiro_Devanagari_Hindi({
   variable: "--font-tiro-devanagari",
@@ -23,7 +24,7 @@ const websiteJsonLd = {
   alternateName: "Mahabharat",
   url: SITE_URL,
   description: SITE_DESCRIPTION,
-  inLanguage: "hi",
+  inLanguage: ["hi", "en"],
 };
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_NAME }],
   alternates: {
     canonical: "/",
+    languages: hreflangAlternates("/", "/en/"),
   },
   openGraph: {
     type: "website",

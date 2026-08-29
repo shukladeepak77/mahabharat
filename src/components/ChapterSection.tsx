@@ -1,13 +1,16 @@
 import Image from "next/image";
 import type { Chapter } from "@/content/types";
 import type { ChapterMedia } from "@/content/chapterMedia";
+import type { Locale } from "@/lib/locale";
 
 export default function ChapterSection({
   chapter,
   media,
+  locale = "hi",
 }: {
   chapter: Chapter;
   media?: ChapterMedia;
+  locale?: Locale;
 }) {
   return (
     <div
@@ -16,7 +19,7 @@ export default function ChapterSection({
     >
       <div className="flex items-baseline gap-3">
         <span className="font-devanagari inline-flex shrink-0 items-center rounded-full bg-gradient-to-br from-steel to-crimson-dark px-3 py-1 text-sm font-bold whitespace-nowrap text-white shadow-sm">
-          अध्याय {chapter.number}
+          {locale === "en" ? `Chapter ${chapter.number}` : `अध्याय ${chapter.number}`}
         </span>
         <h2 className="font-devanagari text-xl font-bold text-crimson-dark sm:text-2xl">
           {chapter.title}
@@ -68,7 +71,7 @@ export default function ChapterSection({
           }}
         >
           <p className="font-devanagari text-xs font-bold uppercase tracking-wide text-crimson-dark">
-            इस अध्याय की शिक्षा
+            {locale === "en" ? "The Teaching of This Chapter" : "इस अध्याय की शिक्षा"}
           </p>
           <p className="mt-1.5 text-sm italic leading-relaxed text-foreground/85 sm:text-base">
             {chapter.moral}

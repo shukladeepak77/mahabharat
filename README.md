@@ -1,6 +1,6 @@
 ## Mahabharat (महाभारत)
 
-A Next.js site presenting the Mahabharata — Maharishi Vedavyasa's epic — in Hindi prose, organized into its traditional 18 parvas.
+A Next.js site presenting the Mahabharata — Maharishi Vedavyasa's epic — in Hindi and English prose, organized into its traditional 18 parvas.
 
 Mirrors the architecture of the sibling site [Shreemadbhagwat](https://www.shreemadbhagwat.com): Next.js App Router with static export, Tailwind CSS v4, deployed to Netlify.
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Parva } from "@/content/parvas";
 import { bubbleColors, bubbleStyle } from "@/lib/bubble";
+import { parvaHref, type Locale } from "@/lib/locale";
 
 export default function ParvaBubble({
   parva,
@@ -8,15 +9,17 @@ export default function ParvaBubble({
   compact = false,
   tiny = false,
   chip = false,
+  locale = "hi",
 }: {
   parva: Parva;
   active?: boolean;
   compact?: boolean;
   tiny?: boolean;
   chip?: boolean;
+  locale?: Locale;
 }) {
   const color = bubbleColors[(parva.order - 1) % bubbleColors.length];
-  const href = `/parva/${parva.slug}`;
+  const href = parvaHref(parva.slug, locale);
 
   if (chip) {
     return (

@@ -4,12 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { parvas } from "@/content/parvas";
+import { parvasEn } from "@/content/parvasEn";
 import ParvaBubble from "@/components/ParvaBubble";
 import ContactEmail from "@/components/ContactEmail";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { homeHref, type Locale } from "@/lib/locale";
 import dharmaPathLogo from "../../public/images/dharma-path-logo.png";
 
-export default function Header() {
+export default function Header({ locale: localeProp }: { locale?: Locale } = {}) {
   const pathname = usePathname();
+  const locale: Locale = localeProp ?? (pathname?.startsWith("/en") ? "en" : "hi");
+  const parvaList = locale === "en" ? parvasEn : parvas;
   const activeSlug = pathname?.includes("/parva/")
     ? pathname.split("/parva/")[1]?.split("/")[0]
     : undefined;
@@ -24,7 +29,7 @@ export default function Header() {
       <div className="min-w-0 flex-1 py-2">
       <div className="flex flex-wrap items-center gap-3">
         <Link
-          href="/"
+          href={homeHref(locale)}
           style={{
             background:
               "radial-gradient(120% 140% at 30% 15%, #7f1d1d 0%, #4c0f0f 55%, #1c0a0a 100%)",
@@ -33,7 +38,7 @@ export default function Header() {
               : "0 0 0 2px rgba(253,224,71,0.3), 0 4px 16px rgba(28,10,10,0.4), inset 0 1px 1px rgba(255,255,255,0.35)",
           }}
           className="group relative flex shrink-0 items-center gap-2 overflow-hidden rounded-full px-4 py-2.5 ring-1 ring-gold/60 transition-all duration-200 hover:-translate-y-0.5 hover:ring-gold sm:gap-2.5 sm:px-5"
-          aria-label="मुख पृष्ठ"
+          aria-label={locale === "en" ? "Home" : "मुख पृष्ठ"}
         >
           <span
             aria-hidden="true"
@@ -66,41 +71,54 @@ export default function Header() {
                 "drop-shadow(0 0 10px rgba(255,225,225,0.85)) drop-shadow(0 1px 1px rgba(76,15,15,0.35))",
             }}
           >
-            महाभारत
+            {locale === "en" ? "Mahabharata" : "महाभारत"}
           </span>
         </Link>
+        {/* Mobile: switcher + email flow inline right after the 🏹 pill,
+            wrapping naturally like the nav bubbles do. sm+ gets a
+            persistent switcher in the gap between the nav bubbles and
+            the foundation logo instead (below), with this row hidden. */}
         <div className="flex flex-wrap items-center gap-2 sm:hidden">
+          <LanguageSwitcher locale={locale} />
           <ContactEmail />
         </div>
         <nav
-          aria-label="पर्व नेविगेशन"
+          aria-label={locale === "en" ? "Parva navigation" : "पर्व नेविगेशन"}
           className="hidden items-center gap-1.5 py-0.5 sm:flex sm:min-w-0 sm:flex-1 sm:flex-wrap"
         >
-          {parvas.map((parva) => (
+          {parvaList.map((parva) => (
             <ParvaBubble
               key={parva.slug}
               parva={parva}
               tiny
+              locale={locale}
               active={parva.slug === activeSlug}
             />
           ))}
         </nav>
         {!onHome && (
           <nav
-            aria-label="पर्व नेविगेशन"
+            aria-label={locale === "en" ? "Parva navigation" : "पर्व नेविगेशन"}
             className="flex w-full flex-wrap gap-1.5 py-0.5 sm:hidden"
           >
-            {parvas.map((parva) => (
+            {parvaList.map((parva) => (
               <ParvaBubble
                 key={parva.slug}
                 parva={parva}
                 chip
+                locale={locale}
                 active={parva.slug === activeSlug}
               />
             ))}
           </nav>
         )}
       </div>
+      </div>
+
+      {/* sm+: switcher lives in the open gap between the nav bubbles and
+          the foundation logo, on every page. */}
+      <div className="hidden shrink-0 self-start pt-3 sm:flex sm:pt-4">
+        <LanguageSwitcher locale={locale} />
       </div>
 
       <div className="flex w-28 shrink-0 items-end gap-2 pb-2 sm:w-auto sm:gap-3 sm:pb-3">

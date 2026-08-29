@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { parvas, getParvaBySlug } from "@/content/parvas";
-import { getParvaContent } from "@/content/getParvaContent";
+import { parvasEn, getParvaEnBySlug } from "@/content/parvasEn";
+import { getParvaContentEn } from "@/content/getParvaContentEn";
 import { getChapterMedia } from "@/content/chapterMedia";
 import HeroBanner from "@/components/HeroBanner";
 import ChapterList from "@/components/ChapterList";
 import ChapterSection from "@/components/ChapterSection";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME_EN } from "@/lib/site";
 import { hreflangAlternates } from "@/lib/locale";
 
 export async function generateStaticParams() {
-  return parvas.map((parva) => ({ slug: parva.slug }));
+  return parvasEn.map((parva) => ({ slug: parva.slug }));
 }
 
 export async function generateMetadata({
@@ -20,46 +20,46 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const parva = getParvaBySlug(slug);
+  const parva = getParvaEnBySlug(slug);
   if (!parva) return {};
-  const url = `/parva/${slug}`;
+  const url = `/en/parva/${slug}/`;
   return {
     title: parva.title,
     description: parva.description,
-    keywords: [parva.title, `${parva.title} महाभारत`, "महाभारत", "महाभारत कथा"],
+    keywords: [parva.title, `${parva.title} Mahabharata`, "Mahabharata", "Mahabharat"],
     alternates: {
       canonical: url,
-      languages: hreflangAlternates(url, `/en/parva/${slug}/`),
+      languages: hreflangAlternates(`/parva/${slug}/`, url),
     },
     openGraph: {
       type: "article",
       url,
-      title: `${parva.title} — ${SITE_NAME}`,
+      title: `${parva.title} — ${SITE_NAME_EN}`,
       description: parva.description,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${parva.title} — ${SITE_NAME}`,
+      title: `${parva.title} — ${SITE_NAME_EN}`,
       description: parva.description,
     },
   };
 }
 
-export default async function ParvaPage({
+export default async function ParvaPageEn({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const parva = getParvaBySlug(slug);
+  const parva = getParvaEnBySlug(slug);
   if (!parva) notFound();
 
-  const content = getParvaContent(slug);
+  const content = getParvaContentEn(slug);
   const chapters = content?.chapters ?? [];
 
-  const index = parvas.findIndex((p) => p.slug === slug);
-  const prev = index > 0 ? parvas[index - 1] : undefined;
-  const next = index < parvas.length - 1 ? parvas[index + 1] : undefined;
+  const index = parvasEn.findIndex((p) => p.slug === slug);
+  const prev = index > 0 ? parvasEn[index - 1] : undefined;
+  const next = index < parvasEn.length - 1 ? parvasEn[index + 1] : undefined;
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -68,14 +68,14 @@ export default async function ParvaPage({
       {
         "@type": "ListItem",
         position: 1,
-        name: SITE_NAME,
-        item: SITE_URL,
+        name: SITE_NAME_EN,
+        item: `${SITE_URL}/en/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: parva.title,
-        item: `${SITE_URL}/parva/${slug}/`,
+        item: `${SITE_URL}/en/parva/${slug}/`,
       },
     ],
   };
@@ -98,8 +98,8 @@ export default async function ParvaPage({
             <div className="flex flex-col divide-y divide-border-muted/60 rounded-[24px] border border-border-muted bg-surface px-5 shadow-[var(--shadow)] sm:px-6">
               {chapters.length === 0 ? (
                 <div className="p-8 text-center text-foreground/70">
-                  <p className="font-devanagari text-lg">
-                    इस पर्व का पाठ शीघ्र ही जोड़ा जाएगा।
+                  <p className="text-lg">
+                    The text of this parva will be added soon.
                   </p>
                 </div>
               ) : (
@@ -108,6 +108,7 @@ export default async function ParvaPage({
                     key={chapter.id}
                     chapter={chapter}
                     media={getChapterMedia(slug, chapter.number)}
+                    locale="en"
                   />
                 ))
               )}
@@ -116,8 +117,8 @@ export default async function ParvaPage({
             <nav className="mt-12 flex items-center justify-between gap-4 text-sm">
               {prev ? (
                 <Link
-                  href={`/parva/${prev.slug}`}
-                  className="font-devanagari rounded-full px-3 py-2 text-crimson-dark hover:bg-soft"
+                  href={`/en/parva/${prev.slug}`}
+                  className="rounded-full px-3 py-2 text-crimson-dark hover:bg-soft"
                 >
                   ← {prev.title}
                 </Link>
@@ -126,8 +127,8 @@ export default async function ParvaPage({
               )}
               {next ? (
                 <Link
-                  href={`/parva/${next.slug}`}
-                  className="font-devanagari rounded-full px-3 py-2 text-crimson-dark hover:bg-soft"
+                  href={`/en/parva/${next.slug}`}
+                  className="rounded-full px-3 py-2 text-crimson-dark hover:bg-soft"
                 >
                   {next.title} →
                 </Link>
@@ -139,7 +140,7 @@ export default async function ParvaPage({
         </div>
 
         <div className="mt-10 hidden min-[1500px]:block min-[1500px]:sticky min-[1500px]:top-20">
-          <ChapterList chapters={chapters} />
+          <ChapterList chapters={chapters} locale="en" />
         </div>
       </div>
     </div>
