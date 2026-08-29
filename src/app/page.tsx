@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { parvas } from "@/content/parvas";
 import ParvaBubble from "@/components/ParvaBubble";
+import YouTubeButton from "@/components/YouTubeButton";
+import { YOUTUBE_PLAYLIST_URL } from "@/lib/site";
 
 export default function Home() {
   const leftParvas = parvas.slice(0, 9);
@@ -23,7 +25,7 @@ export default function Home() {
           }}
         >
           <div
-            className="flex flex-col items-center justify-center overflow-hidden rounded-[26px] px-6 py-4 text-center sm:py-5"
+            className="flex flex-col items-center justify-center overflow-hidden rounded-[26px] px-6 py-6 text-center sm:py-8"
             style={{
               background:
                 "radial-gradient(120% 140% at 50% 0%, #7f1d1d 0%, #4c0f0f 55%, #1c0a0a 100%)",
@@ -49,6 +51,13 @@ export default function Home() {
               अठारह पर्वों में विभाजित विश्व का सबसे विशाल महाकाव्य — धर्म,
               कर्तव्य और कुरुक्षेत्र के युद्ध की अमर गाथा
             </p>
+            <div className="mt-5 border-t border-white/15 pt-5">
+              <YouTubeButton
+                href={YOUTUBE_PLAYLIST_URL}
+                label="पूरी प्लेलिस्ट यूट्यूब पर देखें"
+                size="lg"
+              />
+            </div>
           </div>
         </div>
 
